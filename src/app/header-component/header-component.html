@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg fixed-top sx-nav">
+  <div class="container">
+    <a class="navbar-brand brand" routerLink="/" fragment="inicio" aria-label="Sinalyx - início">
+      <span class="brand-mark"><i></i><i></i><i></i></span> Sinalyx
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="menu"
+      [attr.aria-expanded]="!isMenuCollapsed"
+      aria-label="Abrir menu"
+      (click)="isMenuCollapsed = !isMenuCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu" [ngbCollapse]="isMenuCollapsed">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" routerLink="/" fragment="inicio" (click)="isMenuCollapsed = true">Início</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/" fragment="problema" (click)="isMenuCollapsed = true">Problema</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/" fragment="como-funciona" (click)="isMenuCollapsed = true">Como funciona</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/" fragment="seguranca" (click)="isMenuCollapsed = true">Segurança</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/" fragment="roadmap" (click)="isMenuCollapsed = true">Roadmap</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/" fragment="mercado" (click)="isMenuCollapsed = true">Mercado</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/sobre-nos" routerLinkActive="active" (click)="isMenuCollapsed = true">Sobre nós</a></li>
+      </ul>
+      <a routerLink="/" fragment="contato" class="btn btn-sx" (click)="isMenuCollapsed = true">Quero saber mais</a>
+    </div>
+  </div>
+</nav>

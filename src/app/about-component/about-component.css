@@ -1,0 +1,146 @@
+:host { display: block; width: 100%; }
+
+/* ===== Cabeçalho ===== */
+.about-hero {
+  padding: 150px 0 60px; /* espaço para a navbar fixa */
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(800px 420px at 50% 0%, rgba(56, 189, 248, .16), transparent 65%),
+    radial-gradient(600px 360px at 0% 100%, rgba(34, 197, 94, .10), transparent 60%),
+    var(--sx-bg);
+}
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--sx-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sx-border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 20%, #000 0%, transparent 70%);
+  opacity: .45;
+  pointer-events: none;
+}
+.about-hero .container { position: relative; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--sx-cyan); margin-bottom: 1rem;
+}
+.section-label::before { content: ""; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
+
+.about-title {
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+}
+.grad {
+  background: linear-gradient(90deg, var(--sx-green), var(--sx-cyan));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.about-intro {
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin: 1.4rem auto 0;
+}
+
+/* ===== Equipe ===== */
+.team { padding: 40px 0 96px; }
+
+.member {
+  --accent: var(--sx-green);
+  --accent-soft: rgba(34, 197, 94, .14);
+
+  height: 100%;
+  background: var(--sx-surface);
+  border: 1px solid var(--sx-border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--sx-radius);
+  padding: 1.75rem;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px -28px var(--accent);
+}
+.m-green { --accent: var(--sx-green); --accent-soft: rgba(34, 197, 94, .14); }
+.m-cyan  { --accent: var(--sx-cyan);  --accent-soft: rgba(56, 189, 248, .14); }
+.m-amber { --accent: var(--sx-amber); --accent-soft: rgba(245, 165, 36, .14); }
+.m-red   { --accent: var(--sx-red);   --accent-soft: rgba(239, 68, 68, .14); }
+
+.member-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.3rem;
+}
+.avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+}
+.role-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  font-size: 1.4rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.member h3 { font-size: 1.25rem; color: #fff; margin-bottom: .25rem; }
+.role { color: var(--accent); font-weight: 600; font-size: .92rem; margin-bottom: .9rem; }
+.desc { font-size: .95rem; margin-bottom: 1.2rem; }
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 0;
+  margin: 0;
+}
+.tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .3rem .7rem;
+  font-size: .8rem;
+  color: var(--sx-text);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--sx-border);
+  border-radius: 999px;
+}
+.tags i { color: var(--accent); }
+
+/* ===== Orientação + CTA ===== */
+.about-cta {
+  padding: 70px 0 96px;
+  background: var(--sx-bg-2);
+  border-top: 1px solid var(--sx-border);
+}
+.advisor {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  margin: 0;
+  font-size: 1rem;
+}
+.advisor i { color: var(--sx-cyan); font-size: 1.3rem; }
+.advisor strong { color: #fff; }
+
+/* ===== Mobile ===== */
+@media (max-width: 575.98px) {
+  .about-hero { padding: 120px 0 40px; }
+  .about-cta { padding: 56px 0 72px; }
+}

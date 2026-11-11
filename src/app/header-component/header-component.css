@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+.sx-nav {
+  background: rgba(10, 16, 32, .78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--sx-border);
+  padding: .85rem 0;
+}
+.sx-nav .nav-link {
+  color: var(--sx-muted);
+  font-weight: 500;
+  padding: .5rem .9rem !important;
+  border-radius: 8px;
+}
+.sx-nav .nav-link:hover,
+.sx-nav .nav-link.active { color: #fff; }
+
+.navbar-toggler { border-color: var(--sx-border); }
+.navbar-toggler-icon { filter: invert(1); }
