@@ -5,10 +5,12 @@
       <div class="col-lg-6">
         <span class="pill"><span class="dot"></span> Protótipo em desenvolvimento · Startup Project: One</span>
         <h1>Semáforos que <span class="grad">enxergam</span> o trânsito e se adaptam a ele.</h1>
-        <p class="lead-muted">O Sinalyx usa câmeras e visão computacional para contar veículos em tempo real e ajustar os tempos semafóricos conforme a demanda de cada via, sempre dentro de regras de segurança.</p>
+        <p class="lead-muted">O Sinalyx usa câmeras e visão computacional para contar veículos em tempo real e ajustar
+          os tempos semafóricos conforme a demanda de cada via, sempre dentro de regras de segurança.</p>
         <div class="d-flex flex-wrap gap-3">
-          <a routerLink="/" fragment="como-funciona" class="btn btn-sx btn-lg">Ver como funciona <i class="bi bi-arrow-right ms-1"></i></a>
-          <a routerLink="/" fragment="problema" class="btn btn-ghost btn-lg">Entender o problema</a>
+          <a href="/#como-funciona" (click)="goTo('como-funciona', $event)" class="btn btn-sx btn-lg">Ver como funciona
+            <i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="/#problema" (click)="goTo('problema', $event)" class="btn btn-ghost btn-lg">Entender o problema</a>
         </div>
         <div class="hero-points">
           <span><i class="bi bi-shield-check"></i> Regras de segurança</span>
@@ -21,44 +23,67 @@
         <div class="scene" aria-hidden="true">
           <div class="scene-top"><span>Cruzamento · simulação</span><span class="live">Monitorando</span></div>
           <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg">
-            <rect width="480" height="400" fill="#0b1228"/>
+            <rect width="480" height="400" fill="#0b1228" />
             <!-- vias -->
-            <rect x="0" y="160" width="480" height="80" fill="#1a2342"/>
-            <rect x="200" y="0" width="80" height="400" fill="#1a2342"/>
+            <rect x="0" y="160" width="480" height="80" fill="#1a2342" />
+            <rect x="200" y="0" width="80" height="400" fill="#1a2342" />
             <g stroke="#3a4670" stroke-width="2" stroke-dasharray="14 12">
-              <line x1="0" y1="200" x2="195" y2="200"/><line x1="285" y1="200" x2="480" y2="200"/>
-              <line x1="240" y1="0" x2="240" y2="155"/><line x1="240" y1="245" x2="240" y2="400"/>
+              <line x1="0" y1="200" x2="195" y2="200" />
+              <line x1="285" y1="200" x2="480" y2="200" />
+              <line x1="240" y1="0" x2="240" y2="155" />
+              <line x1="240" y1="245" x2="240" y2="400" />
             </g>
             <!-- faixa de pedestres -->
             <g fill="#2b3659">
-              <rect x="192" y="165" width="4" height="70"/><rect x="284" y="165" width="4" height="70"/>
-              <rect x="205" y="152" width="70" height="4"/><rect x="205" y="244" width="70" height="4"/>
+              <rect x="192" y="165" width="4" height="70" />
+              <rect x="284" y="165" width="4" height="70" />
+              <rect x="205" y="152" width="70" height="4" />
+              <rect x="205" y="244" width="70" height="4" />
             </g>
             <!-- campo de visão da câmera -->
-            <polygon points="240,20 170,150 310,150" fill="rgba(56,189,248,.10)" stroke="rgba(56,189,248,.35)" stroke-dasharray="4 4"/>
+            <polygon points="240,20 170,150 310,150" fill="rgba(56,189,248,.10)" stroke="rgba(56,189,248,.35)"
+              stroke-dasharray="4 4" />
             <!-- carros horizontais -->
-            <g class="car-h delay-a"><rect x="0" y="171" width="38" height="18" rx="5" fill="#38bdf8"/></g>
-            <g class="car-h delay-b"><rect x="0" y="171" width="38" height="18" rx="5" fill="#a78bfa"/></g>
-            <g class="car-h delay-c"><rect x="0" y="211" width="38" height="18" rx="5" fill="#f5a524"/></g>
+            <g class="car-h delay-a">
+              <rect x="0" y="171" width="38" height="18" rx="5" fill="#38bdf8" />
+            </g>
+            <g class="car-h delay-b">
+              <rect x="0" y="171" width="38" height="18" rx="5" fill="#a78bfa" />
+            </g>
+            <g class="car-h delay-c">
+              <rect x="0" y="211" width="38" height="18" rx="5" fill="#f5a524" />
+            </g>
             <!-- carros verticais -->
-            <g class="car-v delay-d"><rect x="211" y="0" width="18" height="38" rx="5" fill="#22c55e"/></g>
-            <g class="car-v delay-e"><rect x="251" y="0" width="18" height="38" rx="5" fill="#38bdf8"/></g>
+            <g class="car-v delay-d">
+              <rect x="211" y="0" width="18" height="38" rx="5" fill="#22c55e" />
+            </g>
+            <g class="car-v delay-e">
+              <rect x="251" y="0" width="18" height="38" rx="5" fill="#38bdf8" />
+            </g>
             <!-- bounding boxes -->
             <g fill="none" stroke="#22c55e" stroke-width="1.5">
-              <rect x="206" y="118" width="28" height="44" rx="3"/><rect x="246" y="96" width="28" height="44" rx="3"/>
+              <rect x="206" y="118" width="28" height="44" rx="3" />
+              <rect x="246" y="96" width="28" height="44" rx="3" />
             </g>
             <text x="206" y="112" fill="#22c55e" font-size="9" font-family="monospace">carro 0.94</text>
             <text x="246" y="90" fill="#22c55e" font-size="9" font-family="monospace">carro 0.91</text>
             <!-- câmera -->
-            <g transform="translate(240,14)"><rect x="-10" y="-8" width="20" height="14" rx="4" fill="#38bdf8"/><circle cx="0" cy="-1" r="3.5" fill="#0b1228"/></g>
+            <g transform="translate(240,14)">
+              <rect x="-10" y="-8" width="20" height="14" rx="4" fill="#38bdf8" />
+              <circle cx="0" cy="-1" r="3.5" fill="#0b1228" />
+            </g>
             <!-- semáforos -->
             <g transform="translate(160,120)">
-              <rect width="16" height="40" rx="5" fill="#0d1530" stroke="#3a4670"/>
-              <circle class="sig-ns-r" cx="8" cy="8" r="4" fill="#ef4444"/><circle cx="8" cy="20" r="4" fill="#f5a524" opacity=".15"/><circle class="sig-ns-g" cx="8" cy="32" r="4" fill="#22c55e"/>
+              <rect width="16" height="40" rx="5" fill="#0d1530" stroke="#3a4670" />
+              <circle class="sig-ns-r" cx="8" cy="8" r="4" fill="#ef4444" />
+              <circle cx="8" cy="20" r="4" fill="#f5a524" opacity=".15" />
+              <circle class="sig-ns-g" cx="8" cy="32" r="4" fill="#22c55e" />
             </g>
             <g transform="translate(300,244)">
-              <rect width="40" height="16" rx="5" fill="#0d1530" stroke="#3a4670"/>
-              <circle class="sig-ew-g" cx="8" cy="8" r="4" fill="#22c55e"/><circle cx="20" cy="8" r="4" fill="#f5a524" opacity=".15"/><circle class="sig-ew-r" cx="32" cy="8" r="4" fill="#ef4444"/>
+              <rect width="40" height="16" rx="5" fill="#0d1530" stroke="#3a4670" />
+              <circle class="sig-ew-g" cx="8" cy="8" r="4" fill="#22c55e" />
+              <circle cx="20" cy="8" r="4" fill="#f5a524" opacity=".15" />
+              <circle class="sig-ew-r" cx="32" cy="8" r="4" fill="#ef4444" />
             </g>
           </svg>
           <div class="scene-metrics">
@@ -80,20 +105,41 @@
         <span class="section-label">O problema</span>
         <h2 class="section-title">Tempo de verde desperdiçado enquanto a fila cresce do outro lado.</h2>
       </div>
-      <div class="col-lg-5"><p class="lead-muted mb-0">Em muitos cruzamentos, a programação por tempos fixos não acompanha as variações momentâneas do fluxo.</p></div>
+      <div class="col-lg-5">
+        <p class="lead-muted mb-0">Em muitos cruzamentos, a programação por tempos fixos não acompanha as variações
+          momentâneas do fluxo.</p>
+      </div>
     </div>
     <div class="row g-4">
       <div class="col-md-6 col-lg-3">
-        <div class="card-sx"><div class="icon-box ic-red"><i class="bi bi-hourglass-split"></i></div><h5>Espera desnecessária</h5><p class="mb-0">Uma via mantém o verde com poucos ou nenhum veículo enquanto a outra acumula fila.</p></div>
+        <div class="card-sx">
+          <div class="icon-box ic-red"><i class="bi bi-hourglass-split"></i></div>
+          <h5>Espera desnecessária</h5>
+          <p class="mb-0">Uma via mantém o verde com poucos ou nenhum veículo enquanto a outra acumula fila.</p>
+        </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="card-sx"><div class="icon-box ic-amber"><i class="bi bi-graph-up-arrow"></i></div><h5>Demanda variável</h5><p class="mb-0">O fluxo muda ao longo do dia e de minuto a minuto, mas os ciclos nem sempre mudam junto.</p></div>
+        <div class="card-sx">
+          <div class="icon-box ic-amber"><i class="bi bi-graph-up-arrow"></i></div>
+          <h5>Demanda variável</h5>
+          <p class="mb-0">O fluxo muda ao longo do dia e de minuto a minuto, mas os ciclos nem sempre mudam junto.</p>
+        </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="card-sx"><div class="icon-box ic-cyan"><i class="bi bi-eye-slash"></i></div><h5>Falta de dados</h5><p class="mb-0">Faltam indicadores operacionais em tempo real para apoiar decisões de quem gerencia o trânsito.</p></div>
+        <div class="card-sx">
+          <div class="icon-box ic-cyan"><i class="bi bi-eye-slash"></i></div>
+          <h5>Falta de dados</h5>
+          <p class="mb-0">Faltam indicadores operacionais em tempo real para apoiar decisões de quem gerencia o
+            trânsito.</p>
+        </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="card-sx"><div class="icon-box ic-green"><i class="bi bi-cash-coin"></i></div><h5>Custo de modernizar</h5><p class="mb-0">Soluções que exigem trocar toda a infraestrutura existente encontram resistência orçamentária.</p></div>
+        <div class="card-sx">
+          <div class="icon-box ic-green"><i class="bi bi-cash-coin"></i></div>
+          <h5>Custo de modernizar</h5>
+          <p class="mb-0">Soluções que exigem trocar toda a infraestrutura existente encontram resistência orçamentária.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -108,14 +154,30 @@
       <p class="lead-muted mx-auto mt-3">Uma arquitetura modular, em que cada etapa entrega dados para a próxima.</p>
     </div>
     <div class="flow">
-      <div class="flow-step"><i class="bi bi-camera-video"></i><h5>Aquisição</h5><p>Câmeras capturam imagens de cada aproximação do cruzamento.</p></div>
-      <div class="flow-step"><i class="bi bi-bounding-box"></i><h5>Visão computacional</h5><p>Detecta e contabiliza os veículos em imagens e vídeos de tráfego.</p></div>
-      <div class="flow-step"><i class="bi bi-bar-chart-line"></i><h5>Análise de fluxo</h5><p>Calcula quantidade de veículos, tamanho de fila e tempo de espera.</p></div>
-      <div class="flow-step"><i class="bi bi-diagram-3"></i><h5>Motor de decisão</h5><p>Define prioridades e propõe a próxima fase e a duração do verde.</p></div>
-      <div class="flow-step"><i class="bi bi-shield-lock"></i><h5>Controlador de segurança</h5><p>Valida a proposta e aciona os semáforos sem permitir conflitos.</p></div>
+      <div class="flow-step"><i class="bi bi-camera-video"></i>
+        <h5>Aquisição</h5>
+        <p>Câmeras capturam imagens de cada aproximação do cruzamento.</p>
+      </div>
+      <div class="flow-step"><i class="bi bi-bounding-box"></i>
+        <h5>Visão computacional</h5>
+        <p>Detecta e contabiliza os veículos em imagens e vídeos de tráfego.</p>
+      </div>
+      <div class="flow-step"><i class="bi bi-bar-chart-line"></i>
+        <h5>Análise de fluxo</h5>
+        <p>Calcula quantidade de veículos, tamanho de fila e tempo de espera.</p>
+      </div>
+      <div class="flow-step"><i class="bi bi-diagram-3"></i>
+        <h5>Motor de decisão</h5>
+        <p>Define prioridades e propõe a próxima fase e a duração do verde.</p>
+      </div>
+      <div class="flow-step"><i class="bi bi-shield-lock"></i>
+        <h5>Controlador de segurança</h5>
+        <p>Valida a proposta e aciona os semáforos sem permitir conflitos.</p>
+      </div>
     </div>
     <div class="text-center mt-4">
-      <span class="pill mb-0"><i class="bi bi-display"></i> Todos os dados e decisões alimentam um dashboard de monitoramento</span>
+      <span class="pill mb-0"><i class="bi bi-display"></i> Todos os dados e decisões alimentam um dashboard de
+        monitoramento</span>
     </div>
   </div>
 </section>
@@ -128,14 +190,28 @@
         <div class="col-lg-5">
           <span class="section-label label-green">Segurança em primeiro lugar</span>
           <h2 class="section-title">Inteligência dentro de limites seguros.</h2>
-          <p class="mt-3 mb-0">O Sinalyx não substitui o funcionamento convencional do semáforo. A camada inteligente atua sob regras de segurança e o controle por tempos predefinidos permanece como referência e contingência.</p>
+          <p class="mt-3 mb-0">O Sinalyx não substitui o funcionamento convencional do semáforo. A camada inteligente
+            atua sob regras de segurança e o controle por tempos predefinidos permanece como referência e contingência.
+          </p>
         </div>
         <div class="col-lg-7">
           <ul class="check-list">
-            <li><i class="bi bi-check-circle-fill"></i><div>Tempos mínimos de verde e amarelo<small>A adaptação nunca ultrapassa os limites configurados.</small></div></li>
-            <li><i class="bi bi-check-circle-fill"></i><div>Intervalos de segurança entre fases<small>Garantem a limpeza do cruzamento antes de nova liberação.</small></div></li>
-            <li><i class="bi bi-check-circle-fill"></i><div>Bloqueio de fases conflitantes<small>Duas liberações incompatíveis nunca acontecem ao mesmo tempo.</small></div></li>
-            <li><i class="bi bi-check-circle-fill"></i><div>Modo convencional de contingência<small>Se o sistema inteligente falhar, o semáforo volta aos tempos predefinidos.</small></div></li>
+            <li><i class="bi bi-check-circle-fill"></i>
+              <div>Tempos mínimos de verde e amarelo<small>A adaptação nunca ultrapassa os limites configurados.</small>
+              </div>
+            </li>
+            <li><i class="bi bi-check-circle-fill"></i>
+              <div>Intervalos de segurança entre fases<small>Garantem a limpeza do cruzamento antes de nova
+                  liberação.</small></div>
+            </li>
+            <li><i class="bi bi-check-circle-fill"></i>
+              <div>Bloqueio de fases conflitantes<small>Duas liberações incompatíveis nunca acontecem ao mesmo
+                  tempo.</small></div>
+            </li>
+            <li><i class="bi bi-check-circle-fill"></i>
+              <div>Modo convencional de contingência<small>Se o sistema inteligente falhar, o semáforo volta aos tempos
+                  predefinidos.</small></div>
+            </li>
           </ul>
         </div>
       </div>
@@ -150,7 +226,8 @@
       <div class="col-lg-5">
         <span class="section-label">Resultados esperados</span>
         <h2 class="section-title">Medimos o ganho, não apenas prometemos.</h2>
-        <p class="mt-3">Uma simulação comparativa confronta o controle por tempos predefinidos com o controle adaptativo, usando os mesmos cenários de tráfego e indicadores objetivos.</p>
+        <p class="mt-3">Uma simulação comparativa confronta o controle por tempos predefinidos com o controle
+          adaptativo, usando os mesmos cenários de tráfego e indicadores objetivos.</p>
         <div class="d-flex flex-wrap gap-2 mt-4">
           <span class="pill mb-0"><i class="bi bi-stopwatch"></i> Tempo médio de espera</span>
           <span class="pill mb-0"><i class="bi bi-rulers"></i> Fila máxima</span>
@@ -160,13 +237,39 @@
       <div class="col-lg-7">
         <div class="compare table-responsive">
           <table class="table align-middle">
-            <thead><tr><th></th><th>Controle convencional</th><th>Sinalyx adaptativo</th></tr></thead>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Controle convencional</th>
+                <th>Sinalyx adaptativo</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Tempos de verde</td><td class="col-old">Fixos</td><td class="col-new">Ajustados à demanda</td></tr>
-              <tr><td>Leitura do tráfego</td><td class="col-old">Não considera</td><td class="col-new">Câmeras e visão computacional</td></tr>
-              <tr><td>Dados operacionais</td><td class="col-old">Limitados</td><td class="col-new">Dashboard com indicadores</td></tr>
-              <tr><td>Implantação</td><td class="col-old">Troca de equipamentos</td><td class="col-new">Gradual, aproveitando a infraestrutura</td></tr>
-              <tr><td>Contingência</td><td class="col-old">—</td><td class="col-new">Modo convencional de fallback</td></tr>
+              <tr>
+                <td>Tempos de verde</td>
+                <td class="col-old">Fixos</td>
+                <td class="col-new">Ajustados à demanda</td>
+              </tr>
+              <tr>
+                <td>Leitura do tráfego</td>
+                <td class="col-old">Não considera</td>
+                <td class="col-new">Câmeras e visão computacional</td>
+              </tr>
+              <tr>
+                <td>Dados operacionais</td>
+                <td class="col-old">Limitados</td>
+                <td class="col-new">Dashboard com indicadores</td>
+              </tr>
+              <tr>
+                <td>Implantação</td>
+                <td class="col-old">Troca de equipamentos</td>
+                <td class="col-new">Gradual, aproveitando a infraestrutura</td>
+              </tr>
+              <tr>
+                <td>Contingência</td>
+                <td class="col-old">—</td>
+                <td class="col-new">Modo convencional de fallback</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -183,12 +286,48 @@
       <h2 class="section-title">Pensado para quem gerencia a mobilidade urbana.</h2>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4"><div class="card-sx"><div class="icon-box ic-green"><i class="bi bi-layers"></i></div><h5>Implantação gradual</h5><p class="mb-0">Comece por poucos cruzamentos e expanda conforme os resultados mensuráveis.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="card-sx"><div class="icon-box ic-cyan"><i class="bi bi-hdd-network"></i></div><h5>Foco em retrofit</h5><p class="mb-0">Aproveita a infraestrutura semafórica existente, sem exigir substituição completa.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="card-sx"><div class="icon-box ic-amber"><i class="bi bi-cpu"></i></div><h5>Processamento local</h5><p class="mb-0">A análise de imagens acontece no próprio equipamento, com menos dependência de nuvem.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="card-sx"><div class="icon-box ic-cyan"><i class="bi bi-speedometer2"></i></div><h5>Dashboard de indicadores</h5><p class="mb-0">Acompanhe fluxo, filas e decisões do controlador em uma única interface.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="card-sx"><div class="icon-box ic-green"><i class="bi bi-puzzle"></i></div><h5>Arquitetura modular</h5><p class="mb-0">Detecção, decisão e controle são módulos independentes e evolutivos.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="card-sx"><div class="icon-box ic-red"><i class="bi bi-currency-dollar"></i></div><h5>MVP de menor custo</h5><p class="mb-0">Valide a solução em ambiente controlado antes de qualquer implantação em escala.</p></div></div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-sx">
+          <div class="icon-box ic-green"><i class="bi bi-layers"></i></div>
+          <h5>Implantação gradual</h5>
+          <p class="mb-0">Comece por poucos cruzamentos e expanda conforme os resultados mensuráveis.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-sx">
+          <div class="icon-box ic-cyan"><i class="bi bi-hdd-network"></i></div>
+          <h5>Foco em retrofit</h5>
+          <p class="mb-0">Aproveita a infraestrutura semafórica existente, sem exigir substituição completa.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-sx">
+          <div class="icon-box ic-amber"><i class="bi bi-cpu"></i></div>
+          <h5>Processamento local</h5>
+          <p class="mb-0">A análise de imagens acontece no próprio equipamento, com menos dependência de nuvem.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-sx">
+          <div class="icon-box ic-cyan"><i class="bi bi-speedometer2"></i></div>
+          <h5>Dashboard de indicadores</h5>
+          <p class="mb-0">Acompanhe fluxo, filas e decisões do controlador em uma única interface.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-sx">
+          <div class="icon-box ic-green"><i class="bi bi-puzzle"></i></div>
+          <h5>Arquitetura modular</h5>
+          <p class="mb-0">Detecção, decisão e controle são módulos independentes e evolutivos.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-sx">
+          <div class="icon-box ic-red"><i class="bi bi-currency-dollar"></i></div>
+          <h5>MVP de menor custo</h5>
+          <p class="mb-0">Valide a solução em ambiente controlado antes de qualquer implantação em escala.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -201,14 +340,38 @@
       <h2 class="section-title">Desenvolvimento incremental, validando antes de construir.</h2>
     </div>
     <div class="timeline">
-      <div class="tl-item"><div class="month">Agosto</div><small>Fundamentos</small>
-        <ul><li>Definição do problema</li><li>Persona e mapa mental</li><li>Organização no Trello</li></ul></div>
-      <div class="tl-item"><div class="month">Setembro</div><small>Validação</small>
-        <ul><li>Pesquisa de mercado</li><li>Observação de cenários de tráfego</li><li>Proposta de valor e modelagem</li></ul></div>
-      <div class="tl-item"><div class="month">Outubro</div><small>MVP</small>
-        <ul><li>Simulação computacional</li><li>Visão computacional</li><li>Controle adaptativo e dashboard</li></ul></div>
-      <div class="tl-item"><div class="month">Novembro</div><small>Protótipo físico</small>
-        <ul><li>Maquete com controlador e câmera</li><li>Testes e coleta de métricas</li><li>Vídeo demonstrativo e pitch</li></ul></div>
+      <div class="tl-item">
+        <div class="month">Agosto</div><small>Fundamentos</small>
+        <ul>
+          <li>Definição do problema</li>
+          <li>Persona e mapa mental</li>
+          <li>Organização no Trello</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="month">Setembro</div><small>Validação</small>
+        <ul>
+          <li>Pesquisa de mercado</li>
+          <li>Observação de cenários de tráfego</li>
+          <li>Proposta de valor e modelagem</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="month">Outubro</div><small>MVP</small>
+        <ul>
+          <li>Simulação computacional</li>
+          <li>Visão computacional</li>
+          <li>Controle adaptativo e dashboard</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="month">Novembro</div><small>Protótipo físico</small>
+        <ul>
+          <li>Maquete com controlador e câmera</li>
+          <li>Testes e coleta de métricas</li>
+          <li>Vídeo demonstrativo e pitch</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -220,17 +383,32 @@
       <div class="col-lg-6">
         <span class="section-label">Mercado</span>
         <h2 class="section-title">Um setor em crescimento, com espaço para diferenciais claros.</h2>
-        <p class="mt-3">O Sinalyx está inserido no mercado de Sistemas Inteligentes de Transporte (ITS) e de cidades inteligentes. Já existem soluções de semáforos inteligentes no país, o que confirma a demanda e reforça a importância de se diferenciar.</p>
+        <p class="mt-3">O Sinalyx está inserido no mercado de Sistemas Inteligentes de Transporte (ITS) e de cidades
+          inteligentes. Já existem soluções de semáforos inteligentes no país, o que confirma a demanda e reforça a
+          importância de se diferenciar.</p>
         <div class="card-sx mt-4 d-flex align-items-center gap-3">
           <div class="icon-box ic-cyan mb-0 flex-shrink-0"><i class="bi bi-globe-americas"></i></div>
-          <div><div class="h3 mb-0">~US$ 876,6 mi</div><p class="mb-0 small">Estimativa do mercado brasileiro de ITS em 2025 (IMARC Group), usada como indicador de tendência.</p></div>
+          <div>
+            <div class="h3 mb-0">~US$ 876,6 mi</div>
+            <p class="mb-0 small">Estimativa do mercado brasileiro de ITS em 2025 (IMARC Group), usada como indicador de
+              tendência.</p>
+          </div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tam">
-          <div class="tam-row"><span class="tam-tag">TAM</span><p><strong>Mercado total</strong>Municípios e organizações brasileiras que podem demandar controle inteligente de tráfego.</p></div>
-          <div class="tam-row"><span class="tam-tag">SAM</span><p><strong>Mercado alcançável</strong>Municípios de médio e grande porte com cruzamentos semaforizados e capacidade de contratação.</p></div>
-          <div class="tam-row"><span class="tam-tag">SOM</span><p><strong>Mercado inicial</strong>Projeto-piloto em Sorocaba ou região, começando por um ou poucos cruzamentos.</p></div>
+          <div class="tam-row"><span class="tam-tag">TAM</span>
+            <p><strong>Mercado total</strong>Municípios e organizações brasileiras que podem demandar controle
+              inteligente de tráfego.</p>
+          </div>
+          <div class="tam-row"><span class="tam-tag">SAM</span>
+            <p><strong>Mercado alcançável</strong>Municípios de médio e grande porte com cruzamentos semaforizados e
+              capacidade de contratação.</p>
+          </div>
+          <div class="tam-row"><span class="tam-tag">SOM</span>
+            <p><strong>Mercado inicial</strong>Projeto-piloto em Sorocaba ou região, começando por um ou poucos
+              cruzamentos.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -242,7 +420,8 @@
   <div class="container mw-760">
     <span class="section-label">Vamos conversar</span>
     <h2 class="section-title">Faz sentido para o seu município ou projeto?</h2>
-    <p class="lead-muted mx-auto my-3">Estamos validando o problema com órgãos de trânsito, prefeituras e integradores. Conte o que você enfrenta nos seus cruzamentos.</p>
+    <p class="lead-muted mx-auto my-3">Estamos validando o problema com órgãos de trânsito, prefeituras e integradores.
+      Conte o que você enfrenta nos seus cruzamentos.</p>
     <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
       <a href="" class="btn btn-sx btn-lg"><i class="bi bi-github me-2"></i>GitHub do projeto</a>
       <a routerLink="/sobre-nos" class="btn btn-ghost btn-lg">Conheça a equipe</a>
@@ -253,7 +432,7 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-    <a class="brand brand-sm" routerLink="/" fragment="inicio"><span class="brand-mark"><i></i><i></i><i></i></span> Sinalyx</a>
+    <a class="brand brand-sm" href="/#inicio" (click)="goTo('inicio', $event)"><span class="brand-mark"><i></i><i></i><i></i></span> Sinalyx</a>
     <span>Sistema Inteligente de Controle Semafórico Baseado em Visão Computacional</span>
     <span>Startup: Project One · Facens · 2026</span>
   </div>
