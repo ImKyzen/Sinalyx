@@ -418,12 +418,13 @@
 <!-- ============ CTA ============ -->
 <section class="cta" id="contato">
   <div class="container mw-760">
-    <span class="section-label">Vamos conversar</span>
-    <h2 class="section-title">Faz sentido para o seu município ou projeto?</h2>
-    <p class="lead-muted mx-auto my-3">Estamos validando o problema com órgãos de trânsito, prefeituras e integradores.
+    <span class="section-label"></span>
+    <h2 class="section-title">Faz sentido para o seu município?</h2>
+    <p class="lead-muted mx-auto my-3">
       Conte o que você enfrenta nos seus cruzamentos.</p>
     <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-      <a href="" class="btn btn-sx btn-lg"><i class="bi bi-github me-2"></i>GitHub do projeto</a>
+      <a href="https://github.com/ImKyzen/Sinalyx" class="btn btn-sx btn-lg"><i class="bi bi-github me-2"></i>GitHub do
+        projeto</a>
       <a routerLink="/sobre-nos" class="btn btn-ghost btn-lg">Conheça a equipe</a>
     </div>
   </div>
@@ -432,7 +433,10 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-    <a class="brand brand-sm" href="/#inicio" (click)="goTo('inicio', $event)"><span class="brand-mark"><i></i><i></i><i></i></span> Sinalyx</a>
+    <a class="brand brand-sm" href="/#inicio" (click)="goTo('inicio', $event)" aria-label="Sinalyx - início">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span class="brand-text">SINAL<span class="brand-accent">YX</span></span>
+    </a>
     <span>Sistema Inteligente de Controle Semafórico Baseado em Visão Computacional</span>
     <span>Startup: Project One · Facens · 2026</span>
   </div>
