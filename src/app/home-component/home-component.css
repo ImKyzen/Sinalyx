@@ -90,8 +90,8 @@ header.hero {
 .ic-cyan { background: rgba(56, 189, 248, .14); color: var(--sx-cyan); }
 
 /* ===== Como funciona ===== */
-.flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; position: relative; counter-reset: step; }
-.flow-step { background: var(--sx-surface); border: 1px solid var(--sx-border); border-radius: var(--sx-radius); padding: 1.5rem 1.25rem; position: relative; counter-increment: step; }
+.flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; position: relative; counter-reset: step; }
+.flow-step { min-width: 0; overflow-wrap: anywhere; background: var(--sx-surface); border: 1px solid var(--sx-border); border-radius: var(--sx-radius); padding: 1.5rem 1.25rem; position: relative; counter-increment: step; }
 .flow-step::before { content: "0" counter(step); font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--sx-cyan); font-size: .85rem; letter-spacing: .08em; }
 .flow-step i { display: block; font-size: 1.8rem; margin: .7rem 0; color: #fff; }
 .flow-step h5 { font-size: 1.05rem; color: #fff; }
@@ -119,8 +119,8 @@ header.hero {
 .compare .col-old { color: var(--sx-muted); }
 
 /* ===== Roadmap ===== */
-.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.tl-item { background: var(--sx-surface); border: 1px solid var(--sx-border); border-radius: var(--sx-radius); padding: 1.5rem; position: relative; border-top: 3px solid var(--sx-cyan); }
+.timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.tl-item { min-width: 0; overflow-wrap: anywhere; background: var(--sx-surface); border: 1px solid var(--sx-border); border-radius: var(--sx-radius); padding: 1.5rem; position: relative; border-top: 3px solid var(--sx-cyan); }
 .tl-item:nth-child(1) { border-top-color: var(--sx-green); }
 .tl-item:nth-child(2) { border-top-color: var(--sx-cyan); }
 .tl-item:nth-child(3) { border-top-color: var(--sx-amber); }
