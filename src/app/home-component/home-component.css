@@ -155,7 +155,10 @@ footer a:hover { color: #fff; }
   .timeline { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 575.98px) {
-  .flow { grid-template-columns: 1fr; }
-  .timeline { grid-template-columns: 1fr; }
-  .tam-row:nth-child(n) { margin-inline: 0; flex-direction: column; align-items: flex-start; gap: .3rem; }
+  .scene-metrics { grid-template-columns: 1fr; gap: 8px; }
+  .scene-metrics div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
